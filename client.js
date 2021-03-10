@@ -13,8 +13,11 @@ const connect = function() {
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });
+  conn.on('connect', () => {
+    conn.write('Name: OSC');
+  });
 
   return conn;
 }
 
-module.exports = {connect};
+module.exports = { connect };
